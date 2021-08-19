@@ -1,0 +1,9 @@
+extends laylout/main-layout.pug 
+
+block style
+block nav   
+
+    main
+        form(action="/add-product", method="post")
+            input(type="text", name="title")#title 
+            button(type="submit") Add
