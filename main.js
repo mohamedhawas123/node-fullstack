@@ -4,18 +4,31 @@ const path = require('path')
 
 const admin = require('./routes/admin')
 const shop  = require('./routes/shop')
-
+const expressHbs = require('express-handlebars')
 
 const app = express()
 
-app.set('view engine', 'pug');
-app.set('views', 'views' )
+// app.set('view engine', 'pug');
+// app.set('views', 'views' )
 
+
+
+// app.engine('handlebars', expressHbs({layoutsDir: 'views/laylout/', defaultLayout: 'main-layout', extname: 'handlebars'}))
+
+
+// app.set('view engine', 'handlebars');
+// app.set('views', 'views' )
+
+
+app.set('view engine', 'ejs');
+app.set('views', 'views' )
 
 
 app.use(bodyParser.urlencoded({
     extended: true
   }));
+
+
 
 
 app.use(bodyParser.json());
@@ -28,7 +41,7 @@ app.use("/", admin.routes)
 app.use("/", shop)
 
 app.use( (req, res, next) => {
-    res.render("notfound")
+    res.render("404")
 } )
 
 app.listen(3000, console.log("RUnning right now "))

@@ -12,8 +12,21 @@ router.route("/").get( (req, res) => {
 
     const productss = products.productss
    
-    res.render("shop.pug", {prods: productss, docTitle: "Shop", path: "/" })
+//     res.render("shop.pug", {prods: productss,
+//          docTitle: "Shop", path: "/",
+//           hasProdcuct: productss.length > 0,
+//           activeShop: true,
+//           activeAddProduct: true
+//          })
+// } )
+
+    res.render("shop.ejs", {prods: productss,
+         docTitle: "Shop", path: "/",
+          
+         })
 } )
+
+
 
 
 
